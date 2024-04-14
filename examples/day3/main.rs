@@ -47,12 +47,8 @@ fn part2(content: &str) -> u32 {
 
 fn main() {
     let content = include_str!("input.txt");
-    // println!("{content}");
-    
-   let answer1 = part1(content);
-    
-   println!("{answer1}");
-
-   let answer2 = part2(content);
-   println!("{answer2}");
+    let answer1 = part1(content);
+    println!("{answer1}");
+    let answer2 = part2(content);
+    println!("{answer2}");
 }

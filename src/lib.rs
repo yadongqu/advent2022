@@ -1,14 +1,9 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+#[cfg(windows)]
+pub const LINE_ENDING : &str = "\r\n";
+#[cfg(not(windows))]
+pub const LINE_ENDING : &str = "\n";
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+#[cfg(windows)]
+pub const TWO_LINE_ENDING: &str = "\r\n\r\n";
+#[cfg(not(windows))]
+pub const TWO_LINE_ENDING : &str = "\n\n";

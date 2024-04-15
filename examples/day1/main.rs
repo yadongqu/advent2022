@@ -1,7 +1,10 @@
+use advent2022::TWO_LINE_ENDING;
+
 fn part1(content: &str) -> u32 {
-    content.split("\n\n").fold(std::u32::MIN, |current_max, calaries| {
+    content.split(TWO_LINE_ENDING).fold(std::u32::MIN, |current_max, calaries| {
         let sum_calaries = |s: &str| {
-            s.split("\n").fold(0u32, |mut sum, number| {
+            s.lines().fold(0u32, |mut sum, number| {
+                let number = number.trim();
                 sum += number.parse::<u32>().unwrap();
                 sum
             })
@@ -12,8 +15,8 @@ fn part1(content: &str) -> u32 {
 
 
 fn part2(content: &str) -> u32 {
-    let mut calories: Vec<u32> = content.split("\n\n").map(|numbers| {
-        numbers.split("\n").fold(0, |mut sum, number| {
+    let mut calories: Vec<u32> = content.split("\r\n\r\n").map(|numbers| {
+        numbers.lines().fold(0, |mut sum, number| {
             sum += number.parse::<u32>().unwrap();
             sum
         })

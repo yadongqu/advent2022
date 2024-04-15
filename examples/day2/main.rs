@@ -49,7 +49,7 @@ fn calculate_choice(choice: &str) -> Choice {
 }
 
 fn part1(content: &str) -> u32 {
-    let sum = content.split("\n").fold(0, |mut sum, line| {
+    let sum = content.lines().fold(0, |mut sum, line| {
         let choices : Vec<&str> = line.split(" ").collect();
         let opponent = calculate_choice(choices[0]);
         let you = calculate_choice(choices[1]);
@@ -85,7 +85,7 @@ fn choice_from_status_and_opponent(opponent: &Choice, status: &Status) -> Choice
 }
 
 fn part2(content: &str) -> u32 {
-    let sum = content.split("\n").fold(0, |mut sum, line| {
+    let sum = content.lines().fold(0, |mut sum, line| {
         let choices : Vec<&str> = line.split(" ").collect();
         let opponent = calculate_choice(choices[0]);
         let status = status_from_play(choices[1]);

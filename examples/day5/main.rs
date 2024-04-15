@@ -1,7 +1,7 @@
-
+use advent2022::TWO_LINE_ENDING;
 
 fn main() {
-    let content: Vec<&str> = include_str!("input.txt").split("\n\n").collect();
+    let content: Vec<&str> = include_str!("input.txt").split(TWO_LINE_ENDING).collect();
     let configuration: Vec<&str> = content[0].lines().collect();
     let length = configuration[configuration.len() - 1].trim().split(" ").filter(|group| !group.trim().is_empty()).collect::<Vec<&str>>().len();
     let mut groups: Vec<Vec<char>> = vec![vec![]; length];
